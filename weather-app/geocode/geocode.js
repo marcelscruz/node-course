@@ -1,13 +1,14 @@
 const request = require('request')
+const keys = require('../config/keys')
 
 const geocodeAddress = (address, callback) => {
   const encodedAddress = encodeURIComponent(address)
-  // const key = 'AIzaSyB-tt9YkG6ydI-zlR5pGLMLvTkbhzaYldE'
+  const googleKey = keys.googleKey
 
   request(
     {
       url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}}`,
-      // url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${key}`,
+      // url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${googleKey}`,
       json: true,
     },
     (error, response, body) => {
