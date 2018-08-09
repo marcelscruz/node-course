@@ -2,38 +2,44 @@ const expect = require('expect')
 
 const utils = require('./utils')
 
-it('should add two numbers', () => {
-  const res = utils.add(33, 11)
+describe('Utils', () => {
+  describe('#add', () => {
+    it('should add two numbers', () => {
+      const res = utils.add(33, 11)
 
-  expect(res)
-    .toBe(44)
-    .toBeA('number')
-})
+      expect(res)
+        .toBe(44)
+        .toBeA('number')
+    })
 
-// done as argument tells mocha the test is async, so should wait to check
-it('should async add two numbers', done => {
-  utils.asyncAdd(4, 3, sum => {
-    expect(sum)
-      .toBe(7)
-      .toBeA('number')
-    done() // mocha processes after this call
+    // done as argument tells mocha the test is async, so should wait to check
+    it('should async add two numbers', done => {
+      utils.asyncAdd(4, 3, sum => {
+        expect(sum)
+          .toBe(7)
+          .toBeA('number')
+        done() // mocha processes after this call
+      })
+    })
   })
-})
 
-it('should square a number', () => {
-  const res = utils.square(3)
+  describe('#square', () => {
+    it('should square a number', () => {
+      const res = utils.square(3)
 
-  expect(res)
-    .toBe(9)
-    .toBeA('number')
-})
+      expect(res)
+        .toBe(9)
+        .toBeA('number')
+    })
 
-it('should async square a number', done => {
-  utils.asyncSquare(3, res => {
-    expect(res)
-      .toBe(9)
-      .toBeA('number')
-    done()
+    it('should async square a number', done => {
+      utils.asyncSquare(3, res => {
+        expect(res)
+          .toBe(9)
+          .toBeA('number')
+        done()
+      })
+    })
   })
 })
 
